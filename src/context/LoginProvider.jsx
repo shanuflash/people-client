@@ -9,6 +9,13 @@ export function LoginProvider({ children }) {
   const [Email, setEmail] = useState(null);
   const [Name, setName] = useState(null);
   const [Phno, setPhno] = useState(null);
+  const [Data, setData] = useState([]);
+
+  const handleData = async (e) => {
+    const { data, error } = await supabase.from("data").select("*");
+    if (error) toast.error(error.message);
+    else setData(data);
+  };
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -17,8 +24,7 @@ export function LoginProvider({ children }) {
     else toast.info("Successfully logged out!");
     setUser(null);
     setEmail(null);
-    setTodo([]);
-    setTrash([]);
+    localStorage.clear();
   };
 
   const handleSession = async (e) => {
@@ -30,6 +36,7 @@ export function LoginProvider({ children }) {
 
   useEffect(() => {
     handleSession();
+    handleData();
   }, [User]);
 
   useEffect(() => {
@@ -48,6 +55,8 @@ export function LoginProvider({ children }) {
         Phno,
         setPhno,
         handleLogout,
+        handleData,
+        Data,
       }}
     >
       {children}

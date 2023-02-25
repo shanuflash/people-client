@@ -10,6 +10,7 @@ function Login() {
   const { User, setUser, Email, setEmail, Name, setName, Phno, setPhno } =
     useContext(LoginContext);
   const [Password, setPassword] = useState(null);
+  const [rev, setrev] = useState(false);
 
   const handleSignin = async (e) => {
     e.preventDefault();
@@ -50,9 +51,15 @@ function Login() {
   return (
     <div>
       {!User ? (
-        <div className="Login">
+        <div
+          className="Login"
+          style={{ flexDirection: rev ? "row-reverse" : "row" }}
+        >
           <form className="left" data-aos="fade-right">
-            <div className="info">Login or Sign up to continue...</div>
+            <div className="info">
+              Login or <span style={{ fontWeight: "800" }}>Sign up</span> to
+              continue...
+            </div>
             <div className="input-container">
               <label htmlFor="name">Name</label>
               <input
@@ -107,9 +114,9 @@ function Login() {
               </button> */}
             </div>
           </form>
-          <div className="container" data-aos="zoom-in">
-            <div className="right" data-aos="zoom-in">
-              <IoFlashSharp />
+          <div className="right" data-aos="zoom-in">
+            <div className="container" data-aos="zoom-in">
+              <IoFlashSharp onClick={() => setrev((prev) => !prev)} />
             </div>
           </div>
         </div>
