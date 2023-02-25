@@ -5,10 +5,11 @@ import { Navigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DataContext } from "./context/DataProvider";
 
-/* -------------
+/* ---------------------
 >TODO:
 - responsive 
---------------- */
+- login/signup switcher
+----------------------- */
 
 function App() {
   const { User, Data, handleLogout } = useContext(DataContext);
@@ -18,7 +19,7 @@ function App() {
         <div className="data">
           <div className="data-container">
             <div className="head">
-              <div className="head-left">
+              <div className="head-left h">
                 Welcome Back!
                 <div className="head-desc">
                   Select a profile to see its details.
