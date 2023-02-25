@@ -1,0 +1,56 @@
+import React, { useState, createContext, useEffect } from "react";
+import supabase from "../supabase";
+import { toast } from "react-toastify";
+
+export const LoginContext = createContext();
+
+export function LoginProvider({ children }) {
+  const [User, setUser] = useState(null);
+  const [Email, setEmail] = useState(null);
+  const [Name, setName] = useState(null);
+  const [Phno, setPhno] = useState(null);
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    const { error } = await supabase.auth.signOut();
+    if (error) toast.error(error.message);
+    else toast.info("Successfully logged out!");
+    setUser(null);
+    setEmail(null);
+    setTodo([]);
+    setTrash([]);
+  };
+
+  const handleSession = async (e) => {
+    const { data, error } = await supabase.auth.getSession();
+    if (error) toast.error(error.message);
+    setUser(data.session.user.id);
+    setEmail(data.session.user.email);
+  };
+
+  useEffect(() => {
+    handleSession();
+  }, [User]);
+
+  useEffect(() => {
+    handleSession();
+  }, []);
+
+  return (
+    <LoginContext.Provider
+      value={{
+        User,
+        setUser,
+        Email,
+        setEmail,
+        Name,
+        setName,
+        Phno,
+        setPhno,
+        handleLogout,
+      }}
+    >
+      {children}
+    </LoginContext.Provider>
+  );
+}
