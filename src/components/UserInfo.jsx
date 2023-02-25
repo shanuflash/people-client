@@ -1,11 +1,66 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { DataContext } from "../context/DataProvider";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 function UserInfo() {
-  const { Data } = useContext(DataContext);
+  const { User, Data, handleLogout } = useContext(DataContext);
   const { userid } = useParams();
-  return <div>UserInfo {userid}</div>;
+  return (
+    <>
+      {/* {User ? ( */}
+      <div className="data">
+        <div className="data-container">
+          <div className="head">
+            <div className="head-left">
+              <div className="back">
+                <Link to="/">
+                  <IoMdArrowRoundBack
+                    style={{ fontSize: "3.5rem", color: "white" }}
+                  />
+                </Link>
+              </div>
+              <div>
+                User id: {Data[userid - 1]?.id}
+                <div className="head-desc">
+                  This is the profile of user id {Data[userid - 1]?.id}
+                </div>
+              </div>
+            </div>
+            <div className="head-right" onClick={handleLogout}>
+              Logout
+            </div>
+          </div>
+          <div className="profile-container">
+            <div className="profile-avatar-container">
+              <img
+                className="profile-avatar"
+                src={Data[userid - 1]?.avatar}
+                alt=""
+              />
+            </div>
+            <div className="profile-text">
+              <div className="profile-data">
+                <span className="profile-data-label">First name: </span>
+                {Data[userid - 1]?.first_name}
+              </div>
+              <div className="profile-data">
+                <span className="profile-data-label"> Last name: </span>
+                {Data[userid - 1]?.last_name}
+              </div>
+              <div className="profile-data">
+                <span className="profile-data-label">Email: </span>
+                {Data[userid - 1]?.email}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* ) : (
+        <Navigate replace to="/Login" />
+      )} */}
+    </>
+  );
 }
 
 export default UserInfo;
