@@ -4,7 +4,6 @@ import supabase from "./supabase";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoginContext } from "./context/LoginProvider";
-import AOS from "aos";
 
 function App() {
   const { User, setUser, Email, setEmail, Name, setName, Phno, setPhno } =

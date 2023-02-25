@@ -7,6 +7,8 @@ import App from "./App";
 import { LoginProvider } from "./context/LoginProvider";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
   //     element: <Trash />,
   //   },
 ]);
+AOS.init();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <LoginProvider>

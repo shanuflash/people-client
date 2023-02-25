@@ -5,10 +5,8 @@ import supabase from "../supabase";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoginContext } from "../context/LoginProvider";
-import AOS from "aos";
 
 function Login() {
-  AOS.init();
   const { User, setUser, Email, setEmail, Name, setName, Phno, setPhno } =
     useContext(LoginContext);
   const [Password, setPassword] = useState(null);
@@ -53,7 +51,7 @@ function Login() {
     <div>
       {!User ? (
         <div className="Login">
-          <form className="left">
+          <form className="left" data-aos="fade-right">
             <div className="info">Login or Sign up to continue...</div>
             <div className="input-container">
               <label htmlFor="name">Name</label>
@@ -109,8 +107,8 @@ function Login() {
               </button> */}
             </div>
           </form>
-          <div className="container">
-            <div className="right">
+          <div className="container" data-aos="zoom-in">
+            <div className="right" data-aos="zoom-in">
               <IoFlashSharp />
             </div>
           </div>
