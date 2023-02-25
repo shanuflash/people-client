@@ -5,6 +5,11 @@ import { Navigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DataContext } from "./context/DataProvider";
 
+/* -------------
+>TODO:
+- responsive 
+--------------- */
+
 function App() {
   const { User, Data, handleLogout } = useContext(DataContext);
   return (
