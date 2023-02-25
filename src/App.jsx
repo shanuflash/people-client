@@ -3,10 +3,10 @@ import "./App.css";
 import supabase from "./supabase";
 import { Navigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { LoginContext } from "./context/LoginProvider";
+import { DataContext } from "./context/DataProvider";
 
 function App() {
-  const { User, Data, handleLogout } = useContext(LoginContext);
+  const { User, Data, handleLogout } = useContext(DataContext);
   return (
     <>
       {User ? (
@@ -25,7 +25,12 @@ function App() {
             </div>
 
             {Data?.map((item) => (
-              <div className="item-container">
+              <Link
+                to={`/user/${item.id}`}
+                className="item-container"
+                id={item.id}
+              >
+                {/* <div className="item-container" id={item.id}> */}
                 <img src={item.avatar} alt="" className="item-img" />
                 <div className="item-data">
                   <div className="item-name">
@@ -33,7 +38,8 @@ function App() {
                   </div>
                   <div className="item-email">{item.email}</div>
                 </div>
-              </div>
+                {/* </div> */}
+              </Link>
             ))}
           </div>
         </div>

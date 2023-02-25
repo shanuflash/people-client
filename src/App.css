@@ -140,8 +140,10 @@ input[type="number"] {
   /* justify-content: space-between; */
   width: 30%;
   background-color: rgb(216, 192, 255);
+  color: black;
   border-radius: 2rem;
   padding: 1rem;
+  text-decoration: none;
 }
 
 .item-img {

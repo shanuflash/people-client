@@ -2,9 +2,9 @@ import React, { useState, createContext, useEffect } from "react";
 import supabase from "../supabase";
 import { toast } from "react-toastify";
 
-export const LoginContext = createContext();
+export const DataContext = createContext();
 
-export function LoginProvider({ children }) {
+export function DataProvider({ children }) {
   const [User, setUser] = useState(null);
   const [Email, setEmail] = useState(null);
   const [Name, setName] = useState(null);
@@ -44,7 +44,7 @@ export function LoginProvider({ children }) {
   }, []);
 
   return (
-    <LoginContext.Provider
+    <DataContext.Provider
       value={{
         User,
         setUser,
@@ -60,6 +60,6 @@ export function LoginProvider({ children }) {
       }}
     >
       {children}
-    </LoginContext.Provider>
+    </DataContext.Provider>
   );
 }

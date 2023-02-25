@@ -4,11 +4,11 @@ import { IoFlashSharp } from "react-icons/io5";
 import supabase from "../supabase";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { LoginContext } from "../context/LoginProvider";
+import { DataContext } from "../context/DataProvider";
 
 function Login() {
   const { User, setUser, Email, setEmail, Name, setName, Phno, setPhno } =
-    useContext(LoginContext);
+    useContext(DataContext);
   const [Password, setPassword] = useState(null);
   const [rev, setrev] = useState(false);
 

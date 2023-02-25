@@ -3,12 +3,14 @@ import ReactDOM from "react-dom/client";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
-import App from "./App";
-import { LoginProvider } from "./context/LoginProvider";
+import { DataProvider } from "./context/DataProvider";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./components/Login";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+import App from "./App";
+import Login from "./components/Login";
+import UserInfo from "./components/UserInfo";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +24,7 @@ const router = createBrowserRouter([
 
   {
     path: "/user/:userid",
-    element: <Login />,
+    element: <UserInfo />,
   },
   //   {
   //     path: "/register",
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
 AOS.init();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <LoginProvider>
+  <DataProvider>
     <RouterProvider router={router} />
     <ToastContainer
       position="bottom-center"
@@ -46,5 +48,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       pauseOnHover
       theme="light"
     />
-  </LoginProvider>
+  </DataProvider>
 );
