@@ -4,11 +4,12 @@ import { DataContext } from "../context/DataProvider";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 function UserInfo() {
-  const { User, Data, handleLogout } = useContext(DataContext);
+  const { User, Data } = useContext(DataContext);
   const { userid } = useParams();
+  const email = localStorage.getItem("email");
   return (
     <>
-      {User ? (
+      {/* {User ? ( */}
         <div className="data">
           <div className="data-container">
             <div className="head">
@@ -63,9 +64,9 @@ function UserInfo() {
             )}
           </div>
         </div>
-      ) : (
+      {/* ) : (
         <Navigate replace to="/Login" />
-      )}
+      )} */}
     </>
   );
 }

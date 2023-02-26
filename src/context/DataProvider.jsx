@@ -56,6 +56,7 @@ export function DataProvider({ children }) {
         setPhno,
         handleLogout,
         handleData,
+        handleSession,
         Data,
       }}
     >

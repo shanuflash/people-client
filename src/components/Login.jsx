@@ -21,8 +21,13 @@ function Login() {
     else toast.info("Successfully logged in!");
     setUser(data.user.id);
     setPassword(null);
-    console.log(data.user.user_metadata);
-    localStorage.setItem("name", JSON.stringify(Name));
+    console.log(data.user.email);
+    localStorage.setItem("email", JSON.stringify(data.user.email));
+    localStorage.setItem("name", JSON.stringify(data.user.user_metadata.name));
+    localStorage.setItem(
+      "phone",
+      JSON.stringify(data.user.user_metadata.phone)
+    );
   };
 
   return (

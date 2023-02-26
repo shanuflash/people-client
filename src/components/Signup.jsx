@@ -17,10 +17,10 @@ function Login() {
     const { data, error } = await supabase.auth.signUp({
       email: Email,
       password: Password,
-      phone: Phno,
       options: {
         data: {
           name: Name,
+          phone: Phno,
         },
       },
     });
