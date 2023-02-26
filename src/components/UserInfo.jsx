@@ -9,7 +9,7 @@ function UserInfo() {
   const email = localStorage.getItem("email");
   return (
     <>
-      {/* {User ? ( */}
+      {email ? (
         <div className="data">
           <div className="data-container">
             <div className="head">
@@ -64,9 +64,9 @@ function UserInfo() {
             )}
           </div>
         </div>
-      {/* ) : (
+      ) : (
         <Navigate replace to="/Login" />
-      )} */}
+      )}
     </>
   );
 }
