@@ -51,7 +51,8 @@
 }
 
 .input-container input:focus {
-  outline: none;
+  outline: 1px solid #5901ac;
+  /* outline: none; */
 }
 
 input::-webkit-outer-spin-button,
