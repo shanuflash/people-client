@@ -3,12 +3,6 @@ import "./App.css";
 import { Navigate, Link } from "react-router-dom";
 import { DataContext } from "./context/DataProvider";
 
-/* ---------------------
->TODO:
-- responsive 
-- login/signup switcher
------------------------ */
-
 function App() {
   const { User, Data, handleLogout } = useContext(DataContext);
   return (

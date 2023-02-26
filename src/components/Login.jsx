@@ -71,8 +71,8 @@ function Login() {
               </div>
             </div>
           </form>
-          <div className="right" data-aos="zoom-in">
-            <div className="container" data-aos="zoom-in">
+          <div className="right" data-aos="zoom-in" data-aos-duration="600">
+            <div className="container">
               <IoFlashSharp className="icon" />
             </div>
           </div>
