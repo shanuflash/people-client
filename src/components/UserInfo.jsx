@@ -8,57 +8,64 @@ function UserInfo() {
   const { userid } = useParams();
   return (
     <>
-      {/* {User ? ( */}
-      <div className="data">
-        <div className="data-container">
-          <div className="head">
-            <div className="head-left">
-              <div className="back">
-                <Link to="/">
-                  <IoMdArrowRoundBack
-                    style={{ fontSize: "3.5rem", color: "white" }}
-                  />
-                </Link>
-              </div>
-              <div>
-                User id: {Data[userid - 1]?.id}
-                <div className="head-desc">
-                  This is the profile of user id {Data[userid - 1]?.id}
+      {User ? (
+        <div className="data">
+          <div className="data-container">
+            <div className="head">
+              <div className="head-left">
+                <div className="back">
+                  <Link
+                    style={{ display: "flex", alignItems: "center" }}
+                    to="/"
+                  >
+                    <IoMdArrowRoundBack
+                      style={{ fontSize: "3.5rem", color: "white" }}
+                    />
+                  </Link>
+                </div>
+                <div>
+                  User id: {Data[userid - 1]?.id}
+                  <div className="head-desc">
+                    This is the profile of user id {Data[userid - 1]?.id}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="head-right" onClick={handleLogout}>
-              Logout
-            </div>
-          </div>
-          <div className="profile-container">
-            <div className="profile-avatar-container">
-              <img
-                className="profile-avatar"
-                src={Data[userid - 1]?.avatar}
-                alt=""
-              />
-            </div>
-            <div className="profile-text">
-              <div className="profile-data">
-                <span className="profile-data-label">First name: </span>
-                {Data[userid - 1]?.first_name}
-              </div>
-              <div className="profile-data">
-                <span className="profile-data-label"> Last name: </span>
-                {Data[userid - 1]?.last_name}
-              </div>
-              <div className="profile-data">
-                <span className="profile-data-label">Email: </span>
-                {Data[userid - 1]?.email}
+              <div className="head-right" onClick={handleLogout}>
+                Logout
               </div>
             </div>
+            {Data[userid - 1] ? (
+              <div className="profile-container">
+                <div className="profile-avatar-container">
+                  <img
+                    className="profile-avatar"
+                    src={Data[userid - 1]?.avatar}
+                    alt=""
+                  />
+                </div>
+                <div className="profile-text">
+                  <div className="profile-data">
+                    <span className="profile-data-label">First name: </span>
+                    {Data[userid - 1]?.first_name}
+                  </div>
+                  <div className="profile-data">
+                    <span className="profile-data-label"> Last name: </span>
+                    {Data[userid - 1]?.last_name}
+                  </div>
+                  <div className="profile-data">
+                    <span className="profile-data-label">Email: </span>
+                    {Data[userid - 1]?.email}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="no-user">User does not exist!</div>
+            )}
           </div>
         </div>
-      </div>
-      {/* ) : (
+      ) : (
         <Navigate replace to="/Login" />
-      )} */}
+      )}
     </>
   );
 }

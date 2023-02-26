@@ -1,8 +1,6 @@
-import { useState, useContext } from "react";
+import {  useContext } from "react";
 import "./App.css";
-import supabase from "./supabase";
 import { Navigate, Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import { DataContext } from "./context/DataProvider";
 
 /* ---------------------
@@ -29,14 +27,12 @@ function App() {
                 Logout
               </div>
             </div>
-
             {Data?.map((item) => (
               <Link
                 to={`/user/${item.id}`}
                 className="item-container"
                 id={item.id}
               >
-                {/* <div className="item-container" id={item.id}> */}
                 <img src={item.avatar} alt="" className="item-img" />
                 <div className="item-data">
                   <div className="item-name">
@@ -44,7 +40,6 @@ function App() {
                   </div>
                   <div className="item-email">{item.email}</div>
                 </div>
-                {/* </div> */}
               </Link>
             ))}
           </div>

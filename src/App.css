@@ -2,9 +2,10 @@
   height: 100vh;
   width: 100vw;
   display: flex;
-  /* overflow: hidden; */
+  overflow: hidden;
   align-items: center;
   justify-content: space-evenly;
+  flex-direction: row-reverse;
 }
 
 .left {
@@ -22,6 +23,12 @@
   color: #5901ac;
   font-size: 2.8rem;
   font-weight: 600;
+}
+
+.input-master {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .input-container {
@@ -65,6 +72,7 @@ input[type="number"] {
 
 .signup {
   flex: 1;
+  max-width: 50%;
   font-size: 1rem;
   padding: 1rem 2rem;
   border: none;
@@ -94,6 +102,9 @@ input[type="number"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.icon {
   color: rgb(237, 229, 255);
   font-size: 20rem;
 }
@@ -194,6 +205,7 @@ input[type="number"] {
 .back {
   display: flex;
   align-items: center;
+  justify-content: center;
   color: white;
 }
 .head-right {
@@ -235,4 +247,56 @@ input[type="number"] {
 .profile-data-label {
   font-size: 2.3rem;
   font-weight: 700;
+}
+
+.no-user {
+  font-size: 2rem;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-button {
+  text-decoration: none;
+  color: #5901ac;
+  font-weight: 600;
+}
+
+.reg {
+  flex-direction: row;
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  .info {
+    font-size: 2rem;
+  }
+  .Login {
+    flex-direction: column-reverse;
+  }
+  .icon {
+    font-size: 5rem;
+  }
+  .right {
+    width: 100%;
+    height: 0;
+  }
+  .container {
+    height: 10vh;
+  }
+  .left {
+    width: 100%;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .info {
+    font-size: 2.5rem;
+  }
+  .icon {
+    font-size: 18rem;
+  }
 }

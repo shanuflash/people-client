@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 
 import App from "./App";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 import UserInfo from "./components/UserInfo";
 
 const router = createBrowserRouter([
@@ -21,15 +22,14 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-
+  {
+    path: "/Signup",
+    element: <Signup />,
+  },
   {
     path: "/user/:userid",
     element: <UserInfo />,
   },
-  //   {
-  //     path: "/register",
-  //     element: <Register />,
-  //   },
 ]);
 AOS.init();
 
@@ -37,7 +37,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <DataProvider>
     <RouterProvider router={router} />
     <ToastContainer
-      position="bottom-center"
+      position="bottom-left"
       autoClose={2000}
       hideProgressBar={false}
       newestOnTop
@@ -46,7 +46,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme="light"
+      theme="colored"
+      // theme="light"
     />
   </DataProvider>
 );

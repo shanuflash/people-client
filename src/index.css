@@ -5,6 +5,7 @@ body {
 }
 
 :root {
+  --toastify-color-info: #5901ac;
   background-color: rgb(237, 229, 255);
   color: black;
   font-family: "Montserrat", sans-serif;
