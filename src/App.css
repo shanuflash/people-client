@@ -2,7 +2,8 @@
   height: 100vh;
   width: 100vw;
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-x: hidden;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: row-reverse;
@@ -131,9 +132,9 @@ input[type="number"] {
   flex-wrap: wrap;
   gap: 1rem;
   box-sizing: border-box;
-  border-radius: 2rem;
+  border-radius: 1rem;
   height: 100%;
-  padding: 2rem;
+  /* padding: 2rem; */
   background-color: #ffffff;
 }
 
@@ -142,12 +143,14 @@ input[type="number"] {
 }
 
 .item-container {
+  overflow: hidden;
   cursor: pointer;
   height: fit-content;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-evenly;
+  /* gap: 2rem; */
   /* justify-content: space-between; */
   width: 30%;
   background-color: rgb(216, 192, 255);
@@ -156,20 +159,35 @@ input[type="number"] {
   padding: 1rem;
   text-decoration: none;
 }
+.item-data {
+  white-space: nowrap;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* width: 70%; */
+}
 
 .item-img {
-  height: 5rem;
-  width: 5rem;
+  object-fit: cover;
+  width: 4rem;
+  height: 4rem;
+  /* min-width: 2rem; */
   object-fit: cover;
   border-radius: 50%;
 }
 
 .item-name {
-  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
 }
 
 .item-email {
-  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
 }
 
 .head {
@@ -185,8 +203,6 @@ input[type="number"] {
   border-radius: 1rem;
   padding: 1.5rem;
   margin-bottom: 1rem;
-  position: sticky;
-  top: 0;
 }
 
 .head-desc {
@@ -195,7 +211,25 @@ input[type="number"] {
 
 .head-left {
   display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.head-user {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
   gap: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  height: fit-content;
+  background-color: rgb(156, 94, 255);
+  color: white;
+  border-radius: 1rem;
+  /* padding: 1.5rem; */
+  position: sticky;
+  top: 0;
 }
 
 .h {
@@ -269,7 +303,7 @@ input[type="number"] {
 }
 
 /* mobile */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) and (min-width: 610px) {
   .info {
     font-size: 2rem;
   }
@@ -289,6 +323,100 @@ input[type="number"] {
   .left {
     width: 100%;
   }
+  .head-left {
+    font-size: 1.5rem;
+  }
+  .head-desc {
+    font-size: 0.8rem;
+  }
+  .head-right {
+    font-size: 0.8rem;
+  }
+  .item-container {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .item-name {
+    font-size: 1rem;
+  }
+  .item-email {
+    font-size: 0.7rem;
+  }
+  .profile-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .profile-data {
+    font-size: 1.5rem;
+  }
+  .profile-data-label {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .info {
+    font-size: 2rem;
+  }
+  .Login {
+    flex-direction: column-reverse;
+  }
+  .icon {
+    font-size: 5rem;
+  }
+  .right {
+    width: 100%;
+    height: 0;
+  }
+  .container {
+    height: 10vh;
+  }
+  .left {
+    width: 100%;
+  }
+  .head {
+    padding: 0.7rem;
+  }
+  .head-left {
+    font-size: 1rem;
+  }
+  .head-desc {
+    font-size: 0.6rem;
+  }
+  .head-right {
+    padding: 0.5rem;
+    font-size: 0.5rem;
+  }
+  .item-container {
+    width: 40%;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .item-name {
+    font-size: 0.7rem;
+    white-space: normal;
+    text-align: center;
+  }
+  .item-email {
+    display: none;
+    font-size: 0.7rem;
+  }
+  .profile-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .profile-avatar {
+    height: 10rem;
+    width: 10rem;
+  }
+  .profile-data {
+    font-size: 1rem;
+  }
+  .profile-data-label {
+    font-size: 1rem;
+  }
 }
 
 /* tablet */
@@ -298,5 +426,27 @@ input[type="number"] {
   }
   .icon {
     font-size: 18rem;
+  }
+  .head-left {
+    font-size: 1.7rem;
+  }
+  .head-desc {
+    font-size: 1rem;
+  }
+  .head-right {
+    font-size: 1rem;
+  }
+  .item-name {
+    font-size: 1.1rem;
+  }
+  .item-email {
+    font-size: 0.7rem;
+  }
+  .profile-avatar {
+    height: 15rem;
+    width: 15rem;
+  }
+  .profile-data-label {
+    font-size: 2rem;
   }
 }

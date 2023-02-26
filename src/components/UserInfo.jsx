@@ -12,7 +12,7 @@ function UserInfo() {
         <div className="data">
           <div className="data-container">
             <div className="head">
-              <div className="head-left">
+              <div className="head-user">
                 <div className="back">
                   <Link
                     style={{ display: "flex", alignItems: "center" }}
@@ -24,15 +24,15 @@ function UserInfo() {
                   </Link>
                 </div>
                 <div>
-                  User id: {Data[userid - 1]?.id}
+                  User ID: {Data[userid - 1]?.id}
                   <div className="head-desc">
-                    This is the profile of user id {Data[userid - 1]?.id}
+                    This is the profile of user ID {Data[userid - 1]?.id}
                   </div>
                 </div>
               </div>
-              <div className="head-right" onClick={handleLogout}>
+              {/* <div className="head-right" onClick={handleLogout}>
                 Logout
-              </div>
+              </div> */}
             </div>
             {Data[userid - 1] ? (
               <div className="profile-container">
