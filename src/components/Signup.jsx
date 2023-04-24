@@ -4,14 +4,12 @@ import { IoFlashSharp } from "react-icons/io5";
 import supabase from "../supabase";
 import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { DataContext } from "../context/DataProvider";
+import { AuthContext } from "../context/AuthProvider";
 
 function Login() {
   const { User, setUser, Email, setEmail, Name, setName, Phno, setPhno } =
-    useContext(DataContext);
+    useContext(AuthContext);
   const [Password, setPassword] = useState(null);
-  const [rev, setrev] = useState(false);
-
   const handleSignup = async (e) => {
     e.preventDefault();
     const { data, error } = await supabase.auth.signUp({
@@ -28,11 +26,8 @@ function Login() {
     else {
       toast.info("Successfully signed up!");
       setUser(data.user.id);
+      localStorage.setItem("user", data.user.id);
       setPassword(null);
-      console.log("name", data.user.user_metadata.first_name);
-      localStorage.setItem("name", JSON.stringify(Name));
-      localStorage.setItem("phno", JSON.stringify(Phno));
-      localStorage.setItem("email", JSON.stringify(Email));
     }
   };
 
@@ -63,7 +58,7 @@ function Login() {
                 className="input input-misc"
                 type="email"
                 value={Email}
-                onChange={(e) => setEmail((prev) => e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter email"
               />
             </div>
@@ -74,7 +69,7 @@ function Login() {
                 className="input input-misc"
                 type="number"
                 value={Phno}
-                onChange={(e) => setPhno((prev) => e.target.value)}
+                onChange={(e) => setPhno(e.target.value)}
                 placeholder="Enter phone number"
               />
             </div>
@@ -85,7 +80,7 @@ function Login() {
                 className="input input-misc"
                 type="password"
                 value={Password}
-                onChange={(e) => setPassword((prev) => e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
               />
             </div>

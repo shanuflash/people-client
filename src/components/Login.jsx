@@ -4,11 +4,10 @@ import { IoFlashSharp } from "react-icons/io5";
 import supabase from "../supabase";
 import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { DataContext } from "../context/DataProvider";
+import { AuthContext } from "../context/AuthProvider";
 
 function Login() {
-  const { User, setUser, Email, setEmail, Name, setName, Phno, setPhno } =
-    useContext(DataContext);
+  const { User, setUser, Email, setEmail } = useContext(AuthContext);
   const [Password, setPassword] = useState(null);
 
   const handleSignin = async (e) => {
@@ -18,16 +17,12 @@ function Login() {
       password: Password,
     });
     if (error) toast.error(error.message);
-    else toast.info("Successfully logged in!");
-    setUser(data.user.id);
-    setPassword(null);
-    console.log(data.user.email);
-    localStorage.setItem("email", JSON.stringify(data.user.email));
-    localStorage.setItem("name", JSON.stringify(data.user.user_metadata.name));
-    localStorage.setItem(
-      "phone",
-      JSON.stringify(data.user.user_metadata.phone)
-    );
+    else {
+      toast.info("Successfully logged in!");
+      setUser(data.user.id);
+      localStorage.setItem("user", data.user.id);
+      setPassword(null);
+    }
   };
 
   return (
@@ -47,7 +42,7 @@ function Login() {
                   className="input input-misc"
                   type="email"
                   value={Email}
-                  onChange={(e) => setEmail((prev) => e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter email"
                 />
               </div>
@@ -58,7 +53,7 @@ function Login() {
                   className="input input-misc"
                   type="password"
                   value={Password}
-                  onChange={(e) => setPassword((prev) => e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter password"
                 />
               </div>
